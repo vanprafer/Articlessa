@@ -1,0 +1,40 @@
+
+body{
+    background-color: #bda488;
+    background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
+}
+
+div.header {
+    display: flex;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.title {
+    font-size: 3em;
+    color: indigo;
+    padding: 0.4em;
+    margin-left: 1em;
+}
+
+.searcher {
+    margin-left: auto;
+    padding: 2.5em;
+}
+
+div.body_ {
+    display: flex;
+    width: 100%;
+}
+
+.filters {
+    margin-left: auto;
+    padding: 5em;
+}
+
+.articles {
+    width: 65%;
+    padding-left: 6em;
+    padding-right: 6em;
+    padding-top: 1em;
+}

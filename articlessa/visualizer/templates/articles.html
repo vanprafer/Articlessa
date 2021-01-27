@@ -1,0 +1,67 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+<div class="header">
+    <div class="title">Articlessa</div>
+    <div class="searcher">
+        <form action="/">
+            <input type="text" name="query" value="{{query}}">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+
+
+<div class="body_">
+    <div class="articles">
+        {% if max_page > 0 %}
+        <div class="pagination">
+            {% if page > 1 %}
+                <a href="/filters?title={{title}}&authors={{authors}}&date_from={{date_from}}&date_to={{date_to}}&page={{previous_page}}">←</a>
+            {% endif %}
+            <span>Page {{page}} of {{max_page}}</span>
+            {% if page < max_page %}
+                <a href="/filters?title={{title}}&authors={{authors}}&date_from={{date_from}}&date_to={{date_to}}&page={{next_page}}">→</a>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% for article in articles %}
+        <div>
+            <h3>{{article.title}}</h3>
+            <h4>{{article.authors}}</h4>
+            <small>{{article.date | date:'d M, Y'}}</small>
+            <a href="{{article.url}}">PDF</a>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+    {% if show_filters %}
+    <div class="filters">
+
+        <form action="/filters">
+            <input type="hidden" name="query" value="{{query}}">
+            <table>
+                <tr>
+                    <td>Title:</td>
+                    <td><input type="text" name="title" value="{{title}}"></td>
+                </tr>
+                <tr>
+                    <td>Authors:</td>
+                    <td><input type="text" name="authors" value="{{authors}}"></td>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td><input type="date" name="date_from" value="{{date_from}}"></td>
+                    <td><input type="date" name="date_to" value="{{date_to}}"></td>
+                </tr>
+                <tr><td><br><input type="submit" value="Filter"></td></tr>
+            </table>
+        </form>
+    </div>
+    {% elif query == '' %}
+    <p>Bienvenido!</p>
+    {% else %}
+    <p>Sorry! No results found for your search :(</p>
+    {% endif %}
+</div>

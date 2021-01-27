@@ -18,5 +18,6 @@ from django.urls import path
 from visualizer import views
 
 urlpatterns = [
-    path('articles/', views.f),
+    path('', views.articles),
+    path('filters/', views.filters)
 ]
