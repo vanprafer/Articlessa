@@ -16,7 +16,7 @@ def articles(request):
     query = request.GET.get('query', '') # No es una request. Se consultan los datos del GET para ver si está la query, si no tuviese datos, devuelve un string vacío
     articles = []
     if query != '':
-        articles = scrapping_arxiv(1, query) + scrapping_f1000research(0, query) + scrapping_biorxiv(0, query)
+        articles = scrapping_arxiv(2, query) + scrapping_f1000research(2, query) + scrapping_biorxiv(2, query)
     ctx = {
         'page': 1,
         'next_page': 2,

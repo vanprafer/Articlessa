@@ -138,3 +138,44 @@ div.body_ {
     width: 15em;
     margin: auto;
 }
+
+.PDF {
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    color: indigo;
+    padding-left: 0.3em;
+    font-size: 0.9em;
+}
+
+.bubble {
+    margin-top: 20%;
+    border: solid 1px #DDD;
+    background: #EEE;
+    margin-bottom: 0.25rem;
+    max-width: 60%;
+    align-self: flex-start;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.75rem;
+    position: relative;
+    font-size: 2em;
+    margin-right: 9%;
+    margin-left: 9%;
+    padding-left: 1rem;
+  }
+
+  .bubble::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-right-color: #EEE;
+    border-left: 0;
+    border-top: 0;
+    margin-bottom: -6px;
+    margin-left: -12px;
+    filter: drop-shadow(0px 1px 0px #DDD) drop-shadow(0px -1px 0px #DDD);
+}

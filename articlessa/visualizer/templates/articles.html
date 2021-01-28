@@ -32,7 +32,7 @@
             <h3>{{article.title}}</h3>
             <h4>{{article.authors}}</h4>
             <small>{{article.date | date:'d M, Y'}}</small>
-            <a href="{{article.url}}">PDF</a>
+            <a class="PDF" href="{{article.url}}">Download document</a>
         </div>
         <hr>
         {% endfor %}
@@ -62,10 +62,10 @@
         </form>
     </div>
     {% elif query == '' %}
-    <p>Bienvenido!</p>
+    <p class="bubble">Hi, fella! What would you like to read about?</p>
     <img class="f-robot" src="{% static 'funny-robot.png' %}">
     {% else %}
-    <p>Sorry! No results found for your search :(</p>
+    <p class="bubble">Sorry! No results found for your search :(</p>
     <img class="f-robot" src="{% static 'sad-robot.png' %}">
     {% endif %}
 </div>
