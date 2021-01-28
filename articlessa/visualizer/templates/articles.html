@@ -1,28 +1,29 @@
 {% load static %}
 
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
 <div class="header">
-    <div class="title">Articlessa</div>
+    <div class="title"><a href="/">Articlessa</a></div>
     <div class="searcher">
         <form action="/">
-            <input type="text" name="query" value="{{query}}">
-            <input type="submit" value="Search">
+            <input type="text" name="query" value="{{query}}" placeholder="search">
+            <button type="submit" value="Search"><i class="fa fa-search"></i></button>
         </form>
     </div>
 </div>
-
 
 <div class="body_">
     <div class="articles">
         {% if max_page > 0 %}
         <div class="pagination">
             {% if page > 1 %}
-                <a href="/filters?title={{title}}&authors={{authors}}&date_from={{date_from}}&date_to={{date_to}}&page={{previous_page}}">←</a>
+                <a href="/filters?title={{title}}&authors={{authors}}&date_from={{date_from}}&date_to={{date_to}}&page={{previous_page}}"><i class="fas fa-chevron-left"></i></a>
             {% endif %}
             <span>Page {{page}} of {{max_page}}</span>
             {% if page < max_page %}
-                <a href="/filters?title={{title}}&authors={{authors}}&date_from={{date_from}}&date_to={{date_to}}&page={{next_page}}">→</a>
+                <a href="/filters?title={{title}}&authors={{authors}}&date_from={{date_from}}&date_to={{date_to}}&page={{next_page}}"><i class="fas fa-chevron-right"></i></a>
             {% endif %}
         </div>
         {% endif %}
@@ -44,24 +45,27 @@
             <table>
                 <tr>
                     <td>Title:</td>
-                    <td><input type="text" name="title" value="{{title}}"></td>
+                    <td colspan="2"><input type="text" name="title" value="{{title}}"></td>
                 </tr>
                 <tr>
                     <td>Authors:</td>
-                    <td><input type="text" name="authors" value="{{authors}}"></td>
+                    <td colspan="2"><input type="text" name="authors" value="{{authors}}"></td>
                 </tr>
                 <tr>
                     <td>Date:</td>
                     <td><input type="date" name="date_from" value="{{date_from}}"></td>
                     <td><input type="date" name="date_to" value="{{date_to}}"></td>
                 </tr>
-                <tr><td><br><input type="submit" value="Filter"></td></tr>
+                <tr><td colspan="3"><br><input type="submit" value="Filter"></td></tr>
             </table>
+            <img class="c-robot" src="{% static 'chill-robot.png' %}">
         </form>
     </div>
     {% elif query == '' %}
     <p>Bienvenido!</p>
+    <img class="f-robot" src="{% static 'funny-robot.png' %}">
     {% else %}
     <p>Sorry! No results found for your search :(</p>
+    <img class="f-robot" src="{% static 'sad-robot.png' %}">
     {% endif %}
 </div>

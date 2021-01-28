@@ -1,25 +1,77 @@
 
+@font-face {
+    font-family: 'geomedium';
+    src: url('geo-webfont.woff2') format('woff2'),
+         url('geo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html,body,h1,h2,h3,h4,h5,h6,input {
+    font-family: "geomedium", sans-serif;
+}
+
+.articles, .articles h3, .articles h4, .articles small {
+    font-family: "Roboto", sans-serif;
+}
+
 body{
-    background-color: #bda488;
-    background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
+    background-color: darkgray;
 }
 
 div.header {
-    display: flex;
     width: 100%;
-    margin-top: 2em;
 }
 
 .title {
-    font-size: 3em;
+    width: min-content;
+    font-size: 6em;
     color: indigo;
-    padding: 0.4em;
-    margin-left: 1em;
+    padding: 0.2em;
+    margin-left: auto;
+    margin-right: auto;
+
+    user-select: none;
+    cursor: pointer;
+}
+
+.title a {
+    text-decoration: none;
+    outline: none;
+}
+
+.title a:active, .title a:visited, .title a:link {
+    color: indigo;
 }
 
 .searcher {
+    width: max-content;
     margin-left: auto;
-    padding: 2.5em;
+    margin-right: auto;
+    padding: 0.5em;
+}
+
+.searcher input {
+    width: 30vw;
+    height: 5vh;
+
+    background: none;
+    border: none;
+    border-bottom: 2px solid indigo;
+
+    font-size: 1.8em;
+
+    text-align: center;
+}
+
+.searcher button {
+    height: 5vh;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+
+    cursor: pointer;
 }
 
 div.body_ {
@@ -28,13 +80,61 @@ div.body_ {
 }
 
 .filters {
+    width: 27%;
+    right: 0;
+    bottom: -4em;
+    position: fixed;
     margin-left: auto;
     padding: 5em;
 }
 
+.filters td {
+    font-size: 1.5em;
+}
+
+.filters input[type=text], .filters input[type=date] {
+    width: 100%;
+    height: 5vh;
+    background: none;
+    border: none;
+    border-bottom: 2px solid indigo;
+    text-align: center;
+    font-size: 1em;
+}
+
+.filters input[type=submit] {
+    display: block;
+    height: 5vh;
+    background: none;
+    border: none;
+    color: indigo;
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: auto;
+
+    cursor: pointer;
+}
+
 .articles {
-    width: 65%;
+    width: 55%;
     padding-left: 6em;
     padding-right: 6em;
     padding-top: 1em;
+}
+
+.pagination span {
+    margin-left: .3em;
+    margin-right: .3em;
+}
+
+.f-robot {
+    width: 27%;
+    position: absolute;
+    transform: translateX(35vw);
+}
+
+.c-robot {
+    display: block;
+    width: 15em;
+    margin: auto;
 }
